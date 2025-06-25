@@ -16,7 +16,7 @@ export default function FilterByState({ onChange }: Props) {
   };
 
   return (
-    <div className="p-4 border rounded-lg shadow bg-white w-full max-w-sm md:w-full">
+    <div className="p-4 border rounded-lg shadow-md bg-white h-full w-full lg:max-w-sm">
       <h2 className="text-lg font-semibold mb-3 text-black">Filter by State</h2>
       <div className="gap-2">
         {AU_STATES.map((state) => (
