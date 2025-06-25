@@ -30,7 +30,7 @@ export default function SearchPage() {
 
   return (
     <div className="p-6">
-      <h3 className="text-xl font-medium mb-4">Weather Stations</h3>
+      <h3 className="text-xl font-bold mb-4 text-black">Weather Stations</h3>
       <p className="text-gray-600 mb-4">
         Use the map and filters below to explore and find relevant stations and information.
       </p>

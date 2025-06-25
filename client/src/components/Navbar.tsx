@@ -10,12 +10,12 @@ export default function Navbar() {
         {/* Left Logo */}
         <Link href="/" className="flex items-center gap-2">
           <Image src="/logo.jpg" alt="Proa Logo" width={32} height={32} />
-          <span className="text-xl font-bold tracking-wide">
+          <span className="text-xl font-bold tracking-wide text-black">
             PROA<span className="text-secondary font-light">MAP</span>
           </span>
         </Link>
 
-        <p className="text-primary-200 hidden md:block">
+        <p className="text-primary-700 hidden md:block">
             Optimising Solar, Wind and Storage
         </p>
 
