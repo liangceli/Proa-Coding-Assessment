@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 
 const AU_STATES = ['NSW', 'VIC', 'QLD', 'WA', 'SA', 'TAS', 'ACT', 'NT'];
 
-type Props = {
-  onChange: (selectedStates: string[]) => void;
-};
+type Props = {onChange: (selectedStates: string[]) => void;};
 
 export default function FilterByState({ onChange }: Props) {
   const [selected, setSelected] = useState<string[]>([]);
