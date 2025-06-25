@@ -10,7 +10,7 @@ export default function Navbar() {
         {/* Left Logo */}
         <Link href="/" className="flex items-center gap-2">
           <Image src="/logo.jpg" alt="Proa Logo" width={32} height={32} />
-          <span className="text-xl font-bold tracking-wide text-black">
+          <span className="text-xl font-bold tracking-wide">
             PROA<span className="text-secondary font-light">MAP</span>
           </span>
         </Link>
