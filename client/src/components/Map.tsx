@@ -33,7 +33,7 @@ const WeatherMap = ({ stations, isLoading, isError }: Props) => {
   const mapContainerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-  if (isLoading || isError || !stations || stations.length === 0) return;
+  if (isLoading || isError || !stations) return;
 
   const map = new mapboxgl.Map({
     container: mapContainerRef.current!,
