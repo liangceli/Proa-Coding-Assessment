@@ -5,10 +5,12 @@ import { PrismaService } from 'prisma/prisma.service';
 export class StationFilterService {
     constructor(private readonly prisma: PrismaService) {}
 
-    async filterByState(state: string) {
+    async filterByState(states: string[]) {
         const stations = await this.prisma.weatherStation.findMany(
             {
-                where: {state},
+                where: {state: {
+                    in: states,
+                }},
                 include: {
                     variables: {
                         include: {

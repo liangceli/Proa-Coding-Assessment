@@ -5,27 +5,37 @@ import { useQuery } from '@tanstack/react-query';
 import WeatherMap from '@/components/Map';
 import FilterByState from '@/components/Filter';
 
-const fetchStations = async (state?: string) => {
-  const url = state
-    ? `http://localhost:3001/filter?state=${state}`
-    : `http://localhost:3001/stations`;
+// const fetchStations = async (state?: string) => {
+//   const url = state
+//     ? `http://localhost:3001/filter?state=${state}`
+//     : `http://localhost:3001/stations`;
+
+//   const res = await fetch(url);
+//   if (!res.ok) throw new Error('Failed to fetch stations');
+//   return res.json();
+// };
+
+const fetchStations = async (states?: string[]) => {
+  const url = 
+    states && states.length > 0
+      ? `http://localhost:3001/filter/by-state?${states.map(s => `states=${s}`).join('&')}`
+      : `http://localhost:3001/stations`;
 
   const res = await fetch(url);
-  if (!res.ok) throw new Error('Failed to fetch stations');
+  if(!res.ok) throw new Error('Failed to fetch stations');
   return res.json();
-};
-
+}
 export default function SearchPage() {
   const [selectedStates, setSelectedStates] = useState<string[]>([]);
-  const selectedState = selectedStates[0]; // Only the first state
+  // const selectedState = selectedStates[0]; // Only the first state
 
   const {
     data: stations,
     isLoading,
     isError,
   } = useQuery({
-    queryKey: ['stations', selectedState],
-    queryFn: () => fetchStations(selectedState),
+    queryKey: ['stations', selectedStates],
+    queryFn: () => fetchStations(selectedStates),
   });
 
   return (
